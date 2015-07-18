@@ -3,8 +3,6 @@ package com.nexgo.eventtest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.greenrobot.event.EventBus;
-
 /**
  * @author 新国都技术股份有限公司 duxd
  * @since 1.0.0

@@ -6,4 +6,6 @@
     <string name="test_in_self_activity">Activity内部测试</string>
     <string name="test_in_singleton">test_in_singleton</string>
     <string name="test_in_normal">test_in_normal</string>
+    <string name="title_activity_next">NextActivity</string>
+    <string name="level_this_screen">level_this_screen</string>
 </resources>
