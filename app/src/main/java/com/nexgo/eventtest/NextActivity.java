@@ -1,16 +1,39 @@
 package com.nexgo.eventtest;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import de.greenrobot.event.EventBus;
 
 public class NextActivity extends AppCompatActivity {
+    private Package myPack;
+    private Logger log;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_next);
+        log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+    }
+
+    @Override
+    protected void onStop() {
+        log.debug("onStop");
+//        EventBus.getDefault().unregister(myPack);
+        super.onStop();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+//        EventBus.getDefault().register(myPack);
+        log.debug("onStart");
     }
 
     @Override
@@ -33,5 +56,11 @@ public class NextActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void OnPackageInOne(View view) {
+        myPack = new Package("ping!");
+        EventBus.getDefault().register(myPack);
+        EventBus.getDefault().post(myPack);
     }
 }

@@ -8,4 +8,5 @@
     <string name="test_in_normal">test_in_normal</string>
     <string name="title_activity_next">NextActivity</string>
     <string name="level_this_screen">level_this_screen</string>
+    <string name="package_in_one">package_in_one</string>
 </resources>
