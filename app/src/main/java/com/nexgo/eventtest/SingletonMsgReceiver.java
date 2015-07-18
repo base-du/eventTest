@@ -15,7 +15,9 @@ public class SingletonMsgReceiver {
 
     private SingletonMsgReceiver() {
         log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-        EventBus.getDefault().register(this);
+        // HERE cannot work
+//        log.debug(this.getClass().getSimpleName());
+//        EventBus.getDefault().register(this);
     }
 
     public static SingletonMsgReceiver getInstance() {

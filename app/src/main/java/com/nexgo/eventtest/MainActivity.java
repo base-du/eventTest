@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         EventBus.getDefault().register(this);
+        EventBus.getDefault().register(SingletonMsgReceiver.getInstance());
         log.debug("onStart");
     }
 
@@ -74,5 +75,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void OnSingleton(View view) {
         EventBus.getDefault().post(new MsgRequestSingleton("ping?"));
+        EventBus.getDefault().post(new MsgRequestSingleton("pang?"));
+    }
+
+    public void OnNormal(View view) {
     }
 }
