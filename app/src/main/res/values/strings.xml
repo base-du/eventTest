@@ -3,5 +3,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="request_bt">Request</string>
+    <string name="test_in_self_activity">Activity内部测试</string>
+    <string name="test_in_singleton">test_in_singleton</string>
 </resources>

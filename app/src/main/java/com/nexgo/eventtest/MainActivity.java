@@ -66,8 +66,13 @@ public class MainActivity extends AppCompatActivity {
         log.debug("onEventAsync Got MsgRequest: {}.", event.getData());
     }
 
+    //Test in self Activity
     public void OnRequest(View view) {
         EventBus.getDefault().post(new MsgRequest("ping?"));
         EventBus.getDefault().post(new MsgRequest("pang!"));
+    }
+
+    public void OnSingleton(View view) {
+        EventBus.getDefault().post(new MsgRequestSingleton("ping?"));
     }
 }
