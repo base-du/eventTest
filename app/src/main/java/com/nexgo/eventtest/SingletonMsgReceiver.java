@@ -3,12 +3,19 @@ package com.nexgo.eventtest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.greenrobot.event.EventBus;
+
 /**
  * @author 新国都技术股份有限公司 duxd
  * @since 1.0.0
  */
 public class SingletonMsgReceiver {
     private static SingletonMsgReceiver ourInstance = new SingletonMsgReceiver();
+
+    static {
+        ourInstance.init();
+    }
+
     private Logger log;
 
     private SingletonMsgReceiver() {
@@ -20,6 +27,12 @@ public class SingletonMsgReceiver {
 
     public static SingletonMsgReceiver getInstance() {
         return ourInstance;
+    }
+
+    private void init() {
+        // HERE can work
+        log.debug("init when static");
+        EventBus.getDefault().register(ourInstance);
     }
 
     public void onEvent(MsgRequestSingleton event) {

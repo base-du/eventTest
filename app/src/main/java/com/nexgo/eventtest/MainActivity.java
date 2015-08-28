@@ -24,13 +24,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+        SingletonMsgReceiver.getInstance();
     }
 
     @Override
     protected void onStop() {
         log.debug("onStop");
         EventBus.getDefault().unregister(this);
-        EventBus.getDefault().unregister(SingletonMsgReceiver.getInstance());
         EventBus.getDefault().unregister(normalMsgReceiver);
         super.onStop();
     }
@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         EventBus.getDefault().register(this);
-        EventBus.getDefault().register(SingletonMsgReceiver.getInstance());
         normalMsgReceiver = new NormalMsgReceiver();
         EventBus.getDefault().register(normalMsgReceiver);
         log.debug("onStart");
